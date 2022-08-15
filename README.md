@@ -8,3 +8,19 @@
 
 ![image](https://user-images.githubusercontent.com/27355460/184603412-08f00e50-f124-4a83-b334-72513b9cfff8.png)
 
+## Command:
+
+Starting
+```
+docker-compose up --detach
+```
+
+Ending
+```
+docker-compose down
+```
+
+Running database interactively
+```
+docker-compose exec -it [YOUR_DB_CONTAINER_NAME]
+```
