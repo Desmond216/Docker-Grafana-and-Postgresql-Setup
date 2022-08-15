@@ -22,5 +22,5 @@ docker-compose down
 
 Running database interactively
 ```
-docker-compose exec -it [YOUR_DB_CONTAINER_NAME]
+docker-compose exec -it dbtest 
 ```
