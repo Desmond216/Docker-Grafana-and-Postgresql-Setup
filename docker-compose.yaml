@@ -1,0 +1,46 @@
+version: "3.8"
+
+services:
+        dbtest:
+                image: postgres:12
+                
+                container_name: dbtest
+                environment:
+                        POSTGRES_DB: dbtest
+                        POSTGRES_USER: docker
+                        POSTGRES_PASSWORD: password
+                ports: 
+                        - 5432:5432
+                volumes:
+                        - dbtestdata:/var/lib/postgresql/data
+                
+                networks: 
+                        - testnetwork
+        grafanatest:
+                image: grafana/grafana:latest
+                container_name: grafanatest
+                ports: 
+                        - 3000:3000
+
+                volumes:
+                        - grafanatestdata:/var/lib/grafana
+                
+                networks: 
+                        - testnetwork
+        adminer:
+                image: adminer
+                restart: always
+                depends_on:
+                        - dbtest
+                ports:
+                        - 8080:8080
+                networks:
+                        - testnetwork
+volumes:
+        dbtestdata:
+        grafanatestdata:
+              
+
+networks:
+        testnetwork:
+             
